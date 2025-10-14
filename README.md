@@ -90,7 +90,7 @@
 | **Seed**              | Reproducibility         | same seed → same output         |
 
 ---
-## Recommended Parameter Settings for Different Tasks
+### Recommended Parameter Settings for Different Tasks
 
 | **Task Type**                                | **Temperature** | **Top-p**  | **Top-k** | **Max Tokens**        | **Presence Penalty** | **Frequency Penalty** | **Stop Sequences**          | **Seed** | **Goal / Effect**                     |
 | -------------------------------------------- | --------------- | ---------- | --------- | --------------------- | -------------------- | --------------------- | --------------------------- | -------- | ------------------------------------- |
