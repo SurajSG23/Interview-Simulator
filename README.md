@@ -90,3 +90,17 @@
 | **Seed**              | Reproducibility         | same seed → same output         |
 
 ---
+## Recommended Parameter Settings for Different Tasks
+
+| **Task Type**                                | **Temperature** | **Top-p**  | **Top-k** | **Max Tokens**        | **Presence Penalty** | **Frequency Penalty** | **Stop Sequences**          | **Seed** | **Goal / Effect**                     |
+| -------------------------------------------- | --------------- | ---------- | --------- | --------------------- | -------------------- | --------------------- | --------------------------- | -------- | ------------------------------------- |
+| **Coding / Technical tasks**                 | 0.1 – 0.3       | 0.8 – 1.0  | 40 – 100  | Medium (e.g. 300–800) | 0.0 – 0.2            | 0.0 – 0.2             | Often none or default       | Optional | Precise, deterministic, no randomness |
+| **Factual Q&A / Study notes**                | 0.2 – 0.4       | 0.8 – 0.95 | 40 – 100  | Medium (300–700)      | 0.0 – 0.2            | 0.0 – 0.3             | Optional                    | Optional | Accurate and focused responses        |
+| **Creative writing / Storytelling / Poetry** | 0.7 – 1.0       | 0.8 – 1.0  | 50 – 200  | High (500–1500+)      | 0.5 – 1.0            | 0.3 – 0.7             | Sometimes (“THE END”, etc.) | Optional | Free, expressive, unpredictable       |
+| **Brainstorming / Idea generation**          | 0.6 – 0.9       | 0.8 – 1.0  | 50 – 150  | Medium (400–1000)     | 0.5 – 1.0            | 0.3 – 0.6             | Optional                    | Optional | Diverse and creative outputs          |
+| **Conversational chat / Assistant use**      | 0.5 – 0.8       | 0.8 – 1.0  | 50 – 100  | Medium (500–1000)     | 0.2 – 0.6            | 0.2 – 0.5             | Often system-defined        | Optional | Natural, friendly flow                |
+| **Summarization / Paraphrasing**             | 0.2 – 0.5       | 0.7 – 0.9  | 40 – 100  | Based on text length  | 0.0 – 0.2            | 0.0 – 0.3             | Optional                    | Optional | Clear, structured summaries           |
+| **Translation**                              | 0.1 – 0.3       | 0.8 – 0.9  | 40 – 80   | Medium (300–700)      | 0.0                  | 0.0 – 0.2             | Optional                    | Optional | Accurate, faithful translation        |
+| **Roleplay / Dialogue generation**           | 0.6 – 0.9       | 0.8 – 1.0  | 50 – 150  | Medium-high           | 0.6 – 1.0            | 0.3 – 0.7             | Optional                    | Optional | Lively, character-driven replies      |
+
+---
