@@ -1,3 +1,16 @@
+# Repo Content:
+
+```
+├── app.py                      # Main Streamlit application for interview chatbot
+├── requirements.txt            # Project dependencies
+├── Sample Programs/
+│   ├── session_st_solution.py  # Example of nested buttons and session state
+│   └── Pirate_ChatBot.py       # Simple Streamlit chatbot that interacts as a pirate
+└── .streamlit/
+    └── secrets.toml            # (Optional) Streamlit secrets file for API key
+```
+
+
 # Activity Diagram
 
 <img width="400" alt="Screenshot 2025-10-13 103847" src="https://github.com/user-attachments/assets/c8d71a73-4fca-45a3-932c-7efa73469514" />
