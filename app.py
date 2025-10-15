@@ -4,21 +4,21 @@ import streamlit as st
 
 # Streamlit page setup
 st.set_page_config(page_title="Streamlit Chat", page_icon="💬")
-st.title("ChatBot")
+st.title("Pirate ChatBot 🏴‍☠️")
 
-# Initialize LLM properly (no `stream=True` here — streaming is handled in `invoke` or `stream` methods)
+# Initialize LLM
 llm = ChatGoogleGenerativeAI(
     model="gemini-2.0-flash",
     google_api_key=config.GEMINI_API_KEY,
     temperature=0,
-    max_output_tokens=250, 
+    max_output_tokens=250,
     model_kwargs={"seed": 42}
 )
 
 # Initialize chat history
 if "messages" not in st.session_state:
     st.session_state.messages = [
-        {"role": "system", "content": "You are a helpful tool that speaks like a pirate."}
+        {"role": "system", "content": "You are a helpful assistant that always speaks like a pirate, using 'Ahoy', 'matey', 'Arrr', and pirate slang."}
     ]
 
 # Display previous messages
@@ -33,11 +33,15 @@ if prompt := st.chat_input("Your message..."):
     with st.chat_message("user"):
         st.markdown(prompt)
 
+    # Save user message to session_state
     st.session_state.messages.append({"role": "user", "content": prompt})
-    
-    # Generate response (streaming output)
+
+    # Generate response using full chat history
     with st.chat_message("assistant"):
-        response_stream = llm.stream(prompt)
+        # Combine all messages (system + previous conversation)
+        conversation = [msg for msg in st.session_state.messages]
+        response_stream = llm.stream(conversation)
         response = st.write_stream(response_stream)
 
+    # Save assistant response
     st.session_state.messages.append({"role": "assistant", "content": str(response)})
