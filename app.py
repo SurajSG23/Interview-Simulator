@@ -1,5 +1,4 @@
 from langchain_google_genai import ChatGoogleGenerativeAI
-import config
 import streamlit as st
 from streamlit_js_eval import streamlit_js_eval
 
@@ -7,7 +6,7 @@ from streamlit_js_eval import streamlit_js_eval
 # Gemini AI Setup
 llm = ChatGoogleGenerativeAI(
     model="gemini-2.0-flash",
-    google_api_key=config.GEMINI_API_KEY,
+    google_api_key=st.secrets["GEMINI_API_KEY"],
     temperature=0,
     max_output_tokens=250,
     model_kwargs={"seed": 42}
