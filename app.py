@@ -4,7 +4,51 @@ import streamlit as st
 
 # Streamlit page setup
 st.set_page_config(page_title="Streamlit Chat", page_icon="💬")
-st.title("Pirate ChatBot 🏴‍☠️")
+st.title("Interview ChatBot")
+
+# Personal Information Section
+st.subheader('Personal information', divider='rainbow')
+
+# Input fields for collecting user's personal information
+name = st.text_input(label = "Name", max_chars = None, placeholder = "Enter your name")
+
+experience = st.text_area(label = "Expirience", value = "", height = None, max_chars = None, placeholder = "Describe your experience")
+
+skills = st.text_area(label = "Skills", value = "", height = None, max_chars = None, placeholder = "List your skills")
+
+# Test labels for personal information
+if name and experience and skills:
+    st.write(f"**Your Name**: {name}")
+    st.write(f"**Your Experience**: {experience}")
+    st.write(f"**Your Skills**: {skills}")
+
+# Company and Position Section
+st.subheader('Company and Position', divider = 'rainbow')
+
+#Field for selecting the job level, position and company
+col1, col2 = st.columns(2)
+with col1:
+    level = st.radio(
+    "Choose level",
+    key="visibility", # Stores the selected value in session_state.visibility for further access
+    options=["Junior", "Mid-level", "Senior"],
+    )
+
+with col2:
+    position = st.selectbox(
+    "Choose a position",
+    key="job_position",
+    options=["Data Scientist", "Data engineer", "ML Engineer", "BI Analyst", "Financial Analyst"],
+    )
+
+
+company = st.selectbox(
+    "Choose a Company",
+    ("Amazon", "Meta", "Udemy", "365 Company", "Nestle", "LinkedIn", "Spotify")
+)
+
+# Test labels for company and position information
+st.write(f"**Your information**: {level} {position} at {company}")
 
 # Initialize LLM
 llm = ChatGoogleGenerativeAI(
