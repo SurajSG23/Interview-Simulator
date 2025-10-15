@@ -29,16 +29,15 @@ for message in st.session_state.messages:
 
 # Chat input
 if prompt := st.chat_input("Your message..."):
-    st.session_state.messages.append({"role": "user", "content": prompt})
-
     # Show user message
     with st.chat_message("user"):
         st.markdown(prompt)
 
+    st.session_state.messages.append({"role": "user", "content": prompt})
+    
     # Generate response (streaming output)
     with st.chat_message("assistant"):
         response_stream = llm.stream(prompt)
         response = st.write_stream(response_stream)
 
-    # Save assistant response
     st.session_state.messages.append({"role": "assistant", "content": str(response)})
